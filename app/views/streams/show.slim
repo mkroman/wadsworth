@@ -2,20 +2,20 @@
   == javascript_include_tag :jwplayer, :jquery
 
   javascript:
-    function ping() {
+    (function update_viewers() {
       $.get("/streams/#{@stream.name}/viewers", function(data) {
-        if (data == "1") {
-          $(".viewers").text("1 person watching");
-        }
-        else {
-          $(".viewers").text(data + " people watching");
-        }
+      $(".viewers").text(data + " " + (data == "1" ? "person watching" : "people watching"));
       });
 
-      setTimeout(ping, 60000);
-    }
+      setTimeout(update_viewers, 60 * 1000);
+    })();
 
-    ping();
+    $(document).ready(function() {
+      $(".pop-up").click(function() {
+        $("#player-container")[0].sendEvent("STOP");
+        window.open("/streams/#{@stream.name}/popup", "Wadsworth", "height=420,width=720");
+      });
+    });
 
 .centered.container
   h2 = @stream.title || "#{@stream.name}'s stream"
@@ -25,12 +25,11 @@
       | Your browser does not support javascript. You're screwed.
 
   .options-container
-    .viewers
+    .option.viewers
       = @stream.viewers.count
-      - if @stream.viewers.count == 1
-          |  person watching
-      - else
-          |  people watching
+      - @stream.viewers.count > 1 ? " person watching" : " people watching"
+
+    .option.pop-up Pop-up
 
 javascript:
   jwplayer("player-container").setup({

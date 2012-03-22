@@ -1,0 +1,29 @@
+- content_for :assets do
+  == javascript_include_tag :jwplayer, :jquery
+
+  javascript:
+    function ping() {
+      $.get("/streams/#{@stream.name}/viewers", function(data) {
+      });
+
+      setTimeout(ping, 60000);
+    }
+
+    ping();
+
+.streaming.video-player#player-container
+  | Your browser does not support javascript. You're screwed.
+
+javascript:
+  jwplayer("player-container").setup({
+    'file': '#{@stream.name}',
+    'skin': '/media/skins/glow.zip',
+    'width': '100%',
+    'height': '100%',
+    'volume': '100',
+    'streamer': 'rtmp://cycle.io/live',
+    'autostart': 'true',
+    'controlbar': 'bottom',
+    'flashplayer': '/media/player.swf',
+    'bufferlength': '3'
+  });

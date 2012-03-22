@@ -17,8 +17,8 @@ Wadsworth.controllers :streams do
     if stream = Stream.first(name: params[:name])
       criterias = {
         :stream_id => stream.id,
-        :time.gt   => Time.now - 90,
-        :address   => request.ip
+        :address   => request.ip,
+        :time.gt   => Time.now - 90
       }
 
       stream.viewers.delete_all :time.lt => Time.now - 120
@@ -33,6 +33,12 @@ Wadsworth.controllers :streams do
       stream.viewers.count.to_s
     else
       "-1"
+    end
+  end
+
+  get :popup, map: "/streams/:name/popup" do
+    if @stream = Stream.first(name: params[:name])
+      render "streams/popup", layout: :popup
     end
   end
 end

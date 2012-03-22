@@ -40,7 +40,6 @@ h2
 #player-container
   width: 720px
   height: 420px
-
   margin: 10px
 
 ul.statistics
@@ -78,18 +77,6 @@ ul.statistics
   background-image: -moz-linear-gradient(top, rgb(252, 252, 252), rgb(246, 246, 246))
   background-image: -webkit-linear-gradient(top, rgb(252, 252, 252), rgb(246, 246, 246))
 
-.viewers
-  display: table-cell
-  height: 25px
-  border: 1px solid rgb(190, 190, 190)
-  padding: 5px 10px
-  background-image: -moz-linear-gradient(top, rgb(252, 252, 252), rgb(246, 246, 246))
-  background-image: -webkit-linear-gradient(top, rgb(252, 252, 252), rgb(246, 246, 246))
-  text-align: center
-  border-radius: .25em
-  vertical-align: middle
-  box-shadow: inset -2px -1px 1px rgb(255, 255, 255), 0 3px 5px rgb(216, 216, 216)
-
 .options-container
   width: 740px
   height: 30px
@@ -97,14 +84,35 @@ ul.statistics
   padding: 5px
   text-align: left
 
-.button
-  border: 1px solid rgb(37, 64, 13)
-  display: inline-block
-  padding: 5px 10px 5px 10px
-  font-size: 10pt
-  border-radius: .5em
-  background-color: rgb(130, 224, 45)
+a
+  color: rgb(60, 60, 60)
+  text-decoration: none
 
-  //box-shadow: inset 0px 1px 0 rgb(136, 250, 72), 0px 1px 0 rgb(38, 69, 20)
-  box-shadow: inset 0px 1px 0px rgb(136, 250, 50), inset 0px -1px 0px rgb(136, 250, 50)
-  background-image: -webkit-linear-gradient(top, rgb(136, 250, 50), rgb(130, 224, 45))
+  &:hover
+    color: rgb(10, 10, 10)
+
+.option
+  cursor: default
+  height: 25px
+  border: 1px solid rgb(190, 190, 190)
+  display: inline
+  padding: 5px 10px
+  text-align: center
+  font-size: 9pt
+  box-shadow: inset -2px -1px 1px rgb(255, 255, 255), 0 3px 5px rgb(216, 216, 216)
+  border-radius: .25em
+  background-image: -moz-linear-gradient(top, rgb(252, 252, 252), rgb(246, 246, 246))
+  background-image: -webkit-linear-gradient(top, rgb(252, 252, 252), rgb(246, 246, 246))
+
+  user-select: none
+  -ms-user-select: none
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -webkit-touch-callout: none
+
+  &.pop-up
+    cursor: pointer
+
+    &:hover
+      color: rgb(10, 10, 10)

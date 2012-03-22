@@ -1,0 +1,11 @@
+doctype html
+
+html
+  head
+    title Wadsworth - #{@stream.title || "#{@stream.title}'s stream"}
+
+    == yield_content :assets
+    == stylesheet_link_tag :popup
+
+  body
+    == yield
