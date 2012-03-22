@@ -18,7 +18,7 @@ Wadsworth.controllers :streams do
       criterias = {
         :stream_id => stream.id,
         :time.gt   => Time.now - 90,
-        :address   => request.env["REMOTE_ADDR"]
+        :address   => request.ip
       }
 
       stream.viewers.delete_all :time.lt => Time.now - 120
@@ -27,7 +27,7 @@ Wadsworth.controllers :streams do
         viewer.time = Time.now
         viewer.save
       else
-        Viewer.create address: request.env["REMOTE_ADDR"], stream: stream, time: Time.now
+        Viewer.create address: request.ip, stream: stream, time: Time.now
       end
 
       stream.viewers.count.to_s
