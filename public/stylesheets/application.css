@@ -1,0 +1,98 @@
+html, body, head {
+  margin: 0;
+  padding: 0;
+  height: 95%; }
+
+body {
+  font-size: 12pt;
+  font-color: #080808;
+  font-family: "Bitstream Vera Sans", Helvetica, sans-serif;
+  background-color: #ededed;
+  background-image: -moz-linear-gradient(bottom, #ededed 28%, #dedede 64%);
+  background-image: -webkit-linear-gradient(bottom, #ededed 28%, #dedede 64%);
+  background-repeat: no-repeat; }
+
+h1 {
+  font-size: 32pt;
+  font-weight: normal;
+  margin: 0.3em;
+  text-shadow: 0 1px 0 white;
+  letter-spacing: -2.2pt; }
+
+h2 {
+  font-size: 24pt;
+  font-weight: normal;
+  margin: 0.3em;
+  text-shadow: 0 1px 0 white;
+  letter-spacing: -2.2pt; }
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; }
+
+#player-container {
+  width: 720px;
+  height: 420px;
+  margin: 10px; }
+
+ul.statistics {
+  width: 100%;
+  color: #3c3c3c;
+  margin: 10px 0 0 0;
+  padding: 0;
+  font-size: 10pt;
+  text-align: left;
+  list-style-type: none; }
+  ul.statistics span.count {
+    color: black; }
+  ul.statistics li {
+    margin: 0;
+    height: 20px;
+    padding: 5px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 0 0 0.5em 0.5em;
+    border-left: 1px solid black;
+    border-right: 1px solid black; }
+    ul.statistics li:hover {
+      background-color: #e1e1e1; }
+
+.boxed {
+  width: 740px;
+  height: 440px;
+  margin: 0 auto;
+  border: 1px solid #bebebe;
+  border-radius: 0.5em;
+  box-shadow: inset -2px -1px 1px white, 0 3px 5px #d8d8d8;
+  background-image: -moz-linear-gradient(top, #fcfcfc, #f6f6f6);
+  background-image: -webkit-linear-gradient(top, #fcfcfc, #f6f6f6); }
+
+.viewers {
+  display: table-cell;
+  height: 25px;
+  border: 1px solid #bebebe;
+  padding: 5px 10px;
+  background-image: -moz-linear-gradient(top, #fcfcfc, #f6f6f6);
+  background-image: -webkit-linear-gradient(top, #fcfcfc, #f6f6f6);
+  text-align: center;
+  border-radius: 0.25em;
+  vertical-align: middle;
+  box-shadow: inset -2px -1px 1px white, 0 3px 5px #d8d8d8; }
+
+.options-container {
+  width: 740px;
+  height: 30px;
+  margin: 10px auto;
+  padding: 5px;
+  text-align: left; }
+
+.button {
+  border: 1px solid #25400d;
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+  font-size: 10pt;
+  border-radius: 0.5em;
+  background-color: #82e02d;
+  box-shadow: inset 0px 1px 0px #88fa32, inset 0px -1px 0px #88fa32;
+  background-image: -webkit-linear-gradient(top, #88fa32, #82e02d); }

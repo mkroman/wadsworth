@@ -1,0 +1,11 @@
+doctype html
+
+html
+  head
+    title Wadsworth
+
+    == yield_content :assets
+    == stylesheet_link_tag :application
+
+  body
+    == yield

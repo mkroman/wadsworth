@@ -1,0 +1,47 @@
+- content_for :assets do
+  == javascript_include_tag :jwplayer, :jquery
+
+  javascript:
+    function ping() {
+      $.get("/streams/#{@stream.name}/viewers", function(data) {
+        if (data == "1") {
+          $(".viewers").text("1 person watching");
+        }
+        else {
+          $(".viewers").text(data + " people watching");
+        }
+      });
+
+      setTimeout(ping, 60000);
+    }
+
+    ping();
+
+.centered.container
+  h2 = @stream.title || "#{@stream.name}'s stream"
+
+  .boxed
+    .streaming.video-player#player-container
+      | Your browser does not support javascript. You're screwed.
+
+  .options-container
+    .viewers
+      = @stream.viewers.count
+      - if @stream.viewers.count == 1
+          |  person watching
+      - else
+          |  people watching
+
+javascript:
+  jwplayer("player-container").setup({
+    'file': '#{@stream.name}',
+    'skin': '/media/skins/glow.zip',
+    'width': '720',
+    'height': '420',
+    'volume': '100',
+    'streamer': 'rtmp://cycle.io/live',
+    'autostart': 'true',
+    'controlbar': 'bottom',
+    'flashplayer': '/media/player.swf',
+    'bufferlength': '3'
+  });
